@@ -42,9 +42,14 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
   
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
+	diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "Warning Message Summary",
+		Detail:   "This is the detailed warning message from providerConfigure",
+	})
   
 	if (username != "") && (password != "") {
-	  c, err := alteon.NewClient(uri, &username, &password)
+	  c, err := alteon.NewClient(&uri, &username, &password)
 	  if err != nil {
 		diags = append(diags, diag.Diagnostic{
 			Severity: diag.Error,
