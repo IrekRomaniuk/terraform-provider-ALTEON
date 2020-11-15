@@ -10,3 +10,8 @@ mv terraform-provider-alteon ~/.terraform.d/plugins/github.com/irekromaniuk/alte
 cd examples
 terraform init && terraform apply --auto-approve
 ```
+
+
+export ALTEON_USERNAME=
+export ALTEON_USERNAME=
+ALTEON_URI=10.96.1.51
