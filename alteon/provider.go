@@ -46,7 +46,12 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	if (username != "") && (password != "") {
 	  c, err := alteon.NewClient(uri, &username, &password)
 	  if err != nil {
-		return nil, diag.FromErr(err)
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Error,
+				Summary:  "Unable to create HashiCups client",
+				Detail:   "Unable to auth user for authenticated HashiCups client",
+			})
+			return nil, diags
 	  }
   
 	  return c, diags
@@ -54,7 +59,12 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
   
 	c, err := alteon.NewClient(nil, nil, nil)
 	if err != nil {
-	  return nil, diag.FromErr(err)
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Error,
+			Summary:  "Unable to create HashiCups client",
+			Detail:   "Unable to auth user for unauthenticated HashiCups client",
+		})
+		return nil, diags
 	}
   
 	return c, diags
