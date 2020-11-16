@@ -16,3 +16,7 @@ terraform init && terraform apply --auto-approve
 export ALTEON_USERNAME=manager
 export ALTEON_PASSWORD=
 export ALTEON_URI="https://10.96.1.51:443"
+
+echo $ALTEON_USERNAME
+echo $ALTEON_PASSWORD
+echo $ALTEON_URI
