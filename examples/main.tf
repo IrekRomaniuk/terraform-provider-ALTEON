@@ -13,6 +13,6 @@ data "real_server" "LabServer" {
   Index="LabServer1"
 }
 
-output "LabServer1" {
-  value = data.real_server.Index
-}
+/*output "LabServer" {
+  value = data.real_server.LabServer
+}*/

@@ -2,9 +2,17 @@
 
 
 ```
-go mod init github.com/irekromaniuk/terraform-provider-alteon
+go mod terraform-provider-alteon
 go clean --modcache (optional)
 go mod vendor 
+```
+
+```
+make install
+```
+or
+
+```
 go build -o terraform-provider-alteon
 mkdir -p ~/.terraform.d/plugins/github.com/irekromaniuk/alteon/0.1/linux_amd64
 mv terraform-provider-alteon ~/.terraform.d/plugins/github.com/irekromaniuk/alteon/0.1/linux_amd64

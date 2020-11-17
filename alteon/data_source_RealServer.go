@@ -3,7 +3,6 @@ package alteon
 import (
   "context"
   //"strconv"
-
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
   "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
