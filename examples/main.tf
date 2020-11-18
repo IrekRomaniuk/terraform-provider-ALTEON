@@ -7,12 +7,15 @@ terraform {
   }
 }
 
-provider "alteon" {}
-
-data "real_server" "LabServer" {
-  Index="LabServer1"
+provider "alteon" {
+  username="manager"
+  uri="https://10.96.1.51:443/config"
 }
 
-/*output "LabServer" {
-  value = data.real_server.LabServer
-}*/
+data "alteon_real_server" "LabServer" {
+  index="LabServer1"
+}
+
+output "LabServer" {
+  value = data.alteon_real_server.LabServer
+}

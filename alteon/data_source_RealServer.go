@@ -3,6 +3,7 @@ package alteon
 import (
   "context"
   //"strconv"
+  "encoding/json"
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
   "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -12,148 +13,148 @@ func dataSourceRealServer() *schema.Resource {
 	return &schema.Resource{
 	  ReadContext: dataSourceRealServerRead,
 	  Schema: map[string]*schema.Schema{
-		"Index": &schema.Schema{
+		"index": &schema.Schema{
 			Type:     schema.TypeString,
 			Required: true,
 		  },
-		"Items": &schema.Schema{
+		"items": &schema.Schema{
 			Type:     schema.TypeList,
 			Computed: true,
 			Elem: &schema.Resource{
 				Schema: map[string]*schema.Schema{
-					"IpAddr": &schema.Schema{
+					"ipaddr": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 					},
-					"Weight": &schema.Schema{
+					"weight": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"MaxConns": &schema.Schema{
+					"maxconns": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"TimeOut": &schema.Schema{
+					"timeout": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},  
-					"PingInterval": &schema.Schema{
+					"pinginterval": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"FailRetry": &schema.Schema{
+					"failretry": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"SuccRetry": &schema.Schema{
+					"succretry": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"State": &schema.Schema{
+					"state": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"DeleteStatus": &schema.Schema{
+					"deletestatus": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"Type": &schema.Schema{
+					"type": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},  
-					"Name": &schema.Schema{
+					"name": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 						},
-					"AddUrl": &schema.Schema{
+					"addurl": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"RemUrl": &schema.Schema{
+					"remurl": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"Cookie": &schema.Schema{
+					"cookie": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},  
-					"ExcludeStr": &schema.Schema{
+					"excludestr": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"Submac": &schema.Schema{
+					"submac": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"Idsport": &schema.Schema{
+					"idsport": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"IPVer": &schema.Schema{
+					"ipver": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"Ipv6Addr": &schema.Schema{
+					"ipv6addr": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 					},
-					"NxtRportIdx": &schema.Schema{
+					"nxtrportidx": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},  
-					"NxtBuddyIdx": &schema.Schema{
+					"nxtbuddyidx": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"LLBType": &schema.Schema{
+					"llbtype": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"Copy": &schema.Schema{
+					"copy": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 					},
-					"PortsIngress": &schema.Schema{
+					"portsingress": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 						},
-					"PortsEgress": &schema.Schema{
+					"portsegress": &schema.Schema{
 						Type:     schema.TypeString,
 						Required: true,
 					},  
-					"AddPortsIngress": &schema.Schema{
+					"addportsingress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"RemPortsIngress": &schema.Schema{
+					"remportsingress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"AddPortsEgress": &schema.Schema{
+					"addportsegress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"RemPortsEgress": &schema.Schema{
+					"remportsegress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},  
-					"VlanIngress": &schema.Schema{
+					"vlaningress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"VlanEgress": &schema.Schema{
+					"vlanegress": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"EgressIf": &schema.Schema{
+					"egressif": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
-					"SecType": &schema.Schema{
+					"sectype": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 						},
-					"IngressIf": &schema.Schema{
+					"ingressif": &schema.Schema{
 						Type:     schema.TypeInt,
 						Required: true,
 					},
@@ -169,16 +170,34 @@ func dataSourceRealServer() *schema.Resource {
 
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
-
-	RealServerID := d.Get("Index").(string)
+	diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "HostUrl and Token",
+		Detail:   "HostURL:" + c.HostURL + " Token:" + c.Token,
+	  })
+	// return diags 
+	RealServerID := d.Get("index").(string)
 
 	RealServer, err := c.GetRealServer(RealServerID)
 	if err != nil {
 		return diag.FromErr(err)
 	}
-
-	RealServerItems := flattenRealServerItemsData(&RealServer.Items)
-	if err := d.Set("Items", RealServerItems); err != nil {
+	prettyJSON, _ := json.MarshalIndent(RealServer, "", "    ")
+	diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "RealServer",
+		Detail:   string(prettyJSON),
+	  })
+	// return diags 
+	RealServerItems, diags := flattenRealServerItemsData(&RealServer.Items)
+	prettyJSON, _ = json.MarshalIndent(RealServerItems[0], "", "    ")
+	diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "RealServerItems",
+		Detail:    string(prettyJSON),
+	  })
+	// return diags   
+	if err := d.Set("items", RealServerItems); err != nil {
 		return diag.FromErr(err)
 	}
 
@@ -187,27 +206,34 @@ func dataSourceRealServer() *schema.Resource {
 	return diags
   }
 
-  func flattenRealServerItemsData(RealServerItems *[]ac.RealServerItem) []interface{} {
+  func flattenRealServerItemsData(RealServerItems *[]ac.RealServerItem) ([]interface{}, diag.Diagnostics) {
+	var diags diag.Diagnostics
+	
+	   
 	if RealServerItems != nil {
 	  rss := make([]interface{}, len(*RealServerItems), len(*RealServerItems))
   
 	  for i, RealServerItem := range *RealServerItems {
 		rsi := make(map[string]interface{})
-  
-		rsi["IpAddr"] = RealServerItem.IpAddr
-		rsi["Weight"] = RealServerItem.Weight
-		rsi["MaxConns"] = RealServerItem.MaxConns
-		rsi["TimeOut"] = RealServerItem.TimeOut
-		rsi["PingInterval"] = RealServerItem.PingInterval
-		rsi["FailRetry"] = RealServerItem.FailRetry
-		rsi["SuccRetry"] = RealServerItem.SuccRetry
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Warning,
+			Summary:  "flatten IpAddr",
+			Detail:   RealServerItem.IpAddr,
+		  })
+		rsi["ipaddr"] = RealServerItem.IpAddr
+		rsi["weight"] = RealServerItem.Weight
+		rsi["maxconns"] = RealServerItem.MaxConns
+		rsi["timeout"] = RealServerItem.TimeOut
+		rsi["pingnterval"] = RealServerItem.PingInterval
+		rsi["failretry"] = RealServerItem.FailRetry
+		rsi["succretry"] = RealServerItem.SuccRetry
   
 		rss[i] = rsi
 	  }
   
-	  return rss
+	  return rss, diags
 	}
   
-	return make([]interface{}, 0)
+	return make([]interface{}, 0), diags
   }
   

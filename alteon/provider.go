@@ -31,7 +31,7 @@ func Provider() *schema.Provider {
 	  },  
     ResourcesMap: map[string]*schema.Resource{},
 	DataSourcesMap: map[string]*schema.Resource{
-		"real_server":     dataSourceRealServer(),
+		"alteon_real_server":     dataSourceRealServer(),
 	},
 	ConfigureContextFunc: providerConfigure,
   }
@@ -40,7 +40,15 @@ func Provider() *schema.Provider {
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	username := d.Get("username").(string)
 	password := d.Get("password").(string)
-	uri := d.Get("uri").(string)
+	// uri := d.Get("uri").(string)
+
+	var host *string
+
+	hVal, ok := d.GetOk("uri")
+	if ok {
+		tempHost := hVal.(string)
+		host = &tempHost
+	}
   
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
@@ -51,7 +59,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	})
   
 	if (username != "") && (password != "") {
-	  c, err := alteon.NewClient(&uri, &username, &password)
+	  c, err := alteon.NewClient(host, &username, &password)
 	  if err != nil {
 		diags = append(diags, diag.Diagnostic{
 			Severity: diag.Error,
@@ -64,7 +72,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	  return c, diags
 	}
   
-	c, err := alteon.NewClient(nil, nil, nil)
+	c, err := alteon.NewClient(host, nil, nil)
 	if err != nil {
 		diags = append(diags, diag.Diagnostic{
 			Severity: diag.Error,
