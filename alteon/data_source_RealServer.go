@@ -224,7 +224,7 @@ func dataSourceRealServer() *schema.Resource {
 		rsi["weight"] = RealServerItem.Weight
 		rsi["maxconns"] = RealServerItem.MaxConns
 		rsi["timeout"] = RealServerItem.TimeOut
-		rsi["pingnterval"] = RealServerItem.PingInterval
+		rsi["pinginterval"] = RealServerItem.PingInterval
 		rsi["failretry"] = RealServerItem.FailRetry
 		rsi["succretry"] = RealServerItem.SuccRetry
   
