@@ -8,8 +8,6 @@ terraform {
 }
 
 provider "alteon" {
-  username="manager"
-  uri="https://10.96.1.51:443/config"
 }
 
 data "alteon_real_server" "LabServer" {
