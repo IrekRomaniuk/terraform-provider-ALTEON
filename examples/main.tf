@@ -21,9 +21,19 @@ output "LabServer" {
 resource "alteon_real_server" "LabServer" {
   index="LabServer22"
   items {
-    	ipaddr="10.2.3.4"
+    	ipaddr="1.1.1.1"
       name="description"
       weight=1
       timeout=2
     }
 }
+
+/*resource "alteon_real_server" "LabServer2" {
+  index="LabServer3"
+  items {
+    	ipaddr="2.2.2.2"
+      name="description2"
+      weight=1
+      timeout=2
+    }
+}*/

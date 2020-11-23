@@ -166,8 +166,8 @@ github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/imdario/mergo v0.3.9/go.mod h1:2EnlNZ0deacrJVfApfmtdGgDfMuh/nq6Ok1EcJh5FfA=
-github.com/irekromaniuk/alteon-client-go v0.0.0-20201120175450-ea199f2338b8 h1:EAMFYt4qpHi9FsIvv7wEhIrHA90DuoC4bBHVM8bzCPk=
-github.com/irekromaniuk/alteon-client-go v0.0.0-20201120175450-ea199f2338b8/go.mod h1:Thi10igImBtD8WjcPkdQzMIJkgZemUK4fyNAY6CZ0Bw=
+github.com/irekromaniuk/alteon-client-go v0.0.0-20201123190513-0c0e75ef3305 h1:qpvvtv/8hhy8JekjbjhLQhfjgNOwuIdASE0ZHCbpcq8=
+github.com/irekromaniuk/alteon-client-go v0.0.0-20201123190513-0c0e75ef3305/go.mod h1:Thi10igImBtD8WjcPkdQzMIJkgZemUK4fyNAY6CZ0Bw=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jhump/protoreflect v1.6.0 h1:h5jfMVslIg6l29nsMs0D8Wj17RDVdNYti0vDN/PZZoE=

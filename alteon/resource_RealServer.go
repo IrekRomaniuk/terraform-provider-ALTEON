@@ -3,8 +3,9 @@ package alteon
 import (
   "context"
   //"strconv"
-  "fmt"
-  "encoding/json"
+  //"fmt"
+  //"encoding/json"
+  "time"
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
   "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -21,6 +22,11 @@ func resourceRealServer() *schema.Resource {
 			Type:     schema.TypeString,
 			Required: true,
 		  },
+		"last_updated": &schema.Schema{
+			Type:     schema.TypeString,
+			Optional: true,
+			Computed: true,
+		  },  
 		"items": &schema.Schema{
 			Type:     schema.TypeList,
 			Required: true,
@@ -33,7 +39,7 @@ func resourceRealServer() *schema.Resource {
 					"weight": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
-		
+						Default: 1,
 						},
 					"maxconns": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -42,6 +48,7 @@ func resourceRealServer() *schema.Resource {
 					"timeout": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 10,
 					},  
 					"pinginterval": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -58,6 +65,7 @@ func resourceRealServer() *schema.Resource {
 					"state": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 3,
 						},
 					"deletestatus": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -82,14 +90,17 @@ func resourceRealServer() *schema.Resource {
 					"cookie": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 2,
 					},  
 					"excludestr": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 2,
 						},
 					"submac": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 2,
 					},
 					"idsport": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -98,6 +109,7 @@ func resourceRealServer() *schema.Resource {
 					"ipver": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 1,
 						},
 					"ipv6addr": &schema.Schema{
 						Type:     schema.TypeString,
@@ -106,10 +118,12 @@ func resourceRealServer() *schema.Resource {
 					"nxtrportidx": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 1,
 					},  
 					"nxtbuddyidx": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 1,
 						},
 					"llbtype": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -158,6 +172,7 @@ func resourceRealServer() *schema.Resource {
 					"sectype": &schema.Schema{
 						Type:     schema.TypeInt,
 						Optional: true, 
+						Default: 1,
 						},
 					"ingressif": &schema.Schema{
 						Type:     schema.TypeInt,
@@ -191,12 +206,12 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 	  }
 	  rss = append(rss, rsi)
 	}
-	prettyJSON, _ := json.MarshalIndent(rss, "", "    ")
+	/*prettyJSON, _ := json.MarshalIndent(rss, "", "    ")
 	  diags = append(diags, diag.Diagnostic{
 		Severity: diag.Warning,
 		Summary:  "rss",
 		Detail:   fmt.Sprint(string(prettyJSON)),
-	  })
+	  })*/
 	  
 	rs, err := c.CreateRealServer(rss, RealServerID)
 	diags = append(diags, diag.Diagnostic{
@@ -209,6 +224,12 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 	}
 	if rs.Status == "ok" {
 		d.SetId(RealServerID)
+	} else {
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Error,
+			Summary:  "Status",
+			Detail:   rs.Status, //add message or testerr
+		  })
 	}
 	
 	resourceRealServerRead(ctx, d, m)
@@ -238,12 +259,56 @@ func resourceRealServerRead(ctx context.Context, d *schema.ResourceData, m inter
 }
 
 func resourceRealServerUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-  return resourceRealServerRead(ctx, d, m)
+    c := m.(*ac.Client)
+
+	RealServerID := d.Id()
+
+	if d.HasChange("items") {
+		items := d.Get("items").([]interface{})
+		rss := []ac.RealServerItem{}
+
+		for _, item := range items {
+			i := item.(map[string]interface{})
+
+			rsi := ac.RealServerItem{
+				IpAddr: i["ipaddr"].(string),
+				Name: i["name"].(string),
+				Weight: i["weight"].(int),
+				TimeOut: i["timeout"].(int),
+				State: i["state"].(int),
+			}
+			rss = append(rss, rsi)
+		}
+
+		_, err := c.UpdateRealServer(rss, RealServerID)
+		if err != nil {
+			return diag.FromErr(err)
+		}
+
+		d.Set("last_updated", time.Now().Format(time.RFC850))
+	}
+
+	return resourceRealServerRead(ctx, d, m)
+	
 }
 
 func resourceRealServerDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   // Warning or errors can be collected in a slice type
+  c := m.(*ac.Client)
+
+  // Warning or errors can be collected in a slice type
   var diags diag.Diagnostics
+
+  RealServerID := d.Id()
+
+  err := c.DeleteRealServer(RealServerID)
+  if err != nil {
+    return diag.FromErr(err)
+  }
+
+  // d.SetId("") is automatically called assuming delete returns no errors, but
+  // it is added here for explicitness.
+  d.SetId("")
 
   return diags
 }

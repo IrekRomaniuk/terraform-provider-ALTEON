@@ -1,30 +1,75 @@
 # terraform-provider-alteon
 
+Tested with Alteon VA (Standalone) Version 32.6.1.0
+
+### Tables implemented:
+
+- SlbNewCfgEnhRealServerTable: RealServerTable
+
+### Resources implemented:
+
+main.tf
 
 ```
-go mod terraform-provider-alteon
-go clean --modcache (optional)
-go mod vendor 
-```
+
+terraform {
+  required_providers {
+    alteon = {
+      versions = ["0.1"]
+      source = "github.com/irekromaniuk/alteon"
+    }
+  }
+}
+
+provider "alteon" {
+}
+
+data "alteon_real_server" "LabServer" {
+  index="LabServer1"
+}
+
+output "LabServer" {
+  value = data.alteon_real_server.LabServer
+}
+
+resource "alteon_real_server" "LabServer" {
+  index="LabServer1"
+  items {
+      ipaddr="1.1.1.1"
+      name="description"
+    }
+}
 
 ```
-make install or make update-go-deps
-```
-or
+then set env variables
 
 ```
-go build -o terraform-provider-alteon
-mkdir -p ~/.terraform.d/plugins/github.com/irekromaniuk/alteon/0.1/linux_amd64
-mv terraform-provider-alteon ~/.terraform.d/plugins/github.com/irekromaniuk/alteon/0.1/linux_amd64
-cd examples
-terraform init && terraform apply --auto-approve
-```
-
-
-export ALTEON_USERNAME=
+export ALTEON_USERNAME=admin
 export ALTEON_PASSWORD=
-export ALTEON_URI=https://40.121.199.70:8443/config
+export ALTEON_URI=https://13.92.134.158:8443/config
 
 echo $ALTEON_USERNAME
 echo $ALTEON_PASSWORD
 echo $ALTEON_URI
+
+cd examples
+terraform init && terraform apply --auto-approve
+```
+
+### Notes:
+
+```
+go mod terraform-provider-alteon
+go clean --modcache (optional !?)
+go mod tidy
+go mod vendor 
+```
+or just
+
+```
+make make update-go-deps
+make install
+```
+
+
+
