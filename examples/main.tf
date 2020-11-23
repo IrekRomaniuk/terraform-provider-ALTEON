@@ -37,3 +37,7 @@ resource "alteon_real_server" "LabServer2" {
       state=2
     }
 }
+
+/*resource "alteon_server_group" "LabServers" {
+  
+}*/
