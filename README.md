@@ -8,7 +8,7 @@ go mod vendor
 ```
 
 ```
-make install
+make install or make update-go-deps
 ```
 or
 
@@ -23,7 +23,7 @@ terraform init && terraform apply --auto-approve
 
 export ALTEON_USERNAME=
 export ALTEON_PASSWORD=
-export ALTEON_URI=
+export ALTEON_URI=https://40.121.199.70:8443/config
 
 echo $ALTEON_USERNAME
 echo $ALTEON_PASSWORD

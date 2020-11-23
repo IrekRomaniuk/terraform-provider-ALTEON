@@ -29,7 +29,9 @@ func Provider() *schema.Provider {
 			DefaultFunc: schema.EnvDefaultFunc("ALTEON_URI", nil),
 		  },
 	  },  
-    ResourcesMap: map[string]*schema.Resource{},
+    ResourcesMap: map[string]*schema.Resource{
+		"alteon_real_server":     resourceRealServer(),
+	},
 	DataSourcesMap: map[string]*schema.Resource{
 		"alteon_real_server":     dataSourceRealServer(),
 	},

@@ -3,23 +3,27 @@ package alteon
 import (
   "context"
   //"strconv"
-  //"encoding/json"
+  "fmt"
+  "encoding/json"
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
   "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-func dataSourceRealServer() *schema.Resource {
-	return &schema.Resource{
-	  ReadContext: dataSourceRealServerRead,
-	  Schema: map[string]*schema.Schema{
+func resourceRealServer() *schema.Resource {
+  return &schema.Resource{
+    CreateContext: resourceRealServerCreate,
+    ReadContext:   resourceRealServerRead,
+    UpdateContext: resourceRealServerUpdate,
+    DeleteContext: resourceRealServerDelete,
+    Schema: map[string]*schema.Schema{
 		"index": &schema.Schema{
 			Type:     schema.TypeString,
 			Required: true,
 		  },
 		"items": &schema.Schema{
 			Type:     schema.TypeList,
-			Computed: true ,
+			Required: true,
 			Elem: &schema.Resource{
 				Schema: map[string]*schema.Schema{
 					"ipaddr": &schema.Schema{
@@ -28,135 +32,136 @@ func dataSourceRealServer() *schema.Resource {
 					},
 					"weight": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
+		
 						},
 					"maxconns": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"timeout": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},  
 					"pinginterval": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"failretry": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"succretry": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"state": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"deletestatus": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"type": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},  
 					"name": &schema.Schema{
 						Type:     schema.TypeString,
-						Optional: true,
+						Optional: true, 
 						},
 					"addurl": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"remurl": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"cookie": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},  
 					"excludestr": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"submac": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"idsport": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"ipver": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"ipv6addr": &schema.Schema{
 						Type:     schema.TypeString,
-						Optional: true,
+						Optional: true, 
 					},
 					"nxtrportidx": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},  
 					"nxtbuddyidx": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"llbtype": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"copy": &schema.Schema{
 						Type:     schema.TypeString,
-						Optional: true,
+						Optional: true, 
 					},
 					"portsingress": &schema.Schema{
 						Type:     schema.TypeString,
-						Optional: true,
+						Optional: true, 
 						},
 					"portsegress": &schema.Schema{
 						Type:     schema.TypeString,
-						Optional: true,
+						Optional: true, 
 					},  
 					"addportsingress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"remportsingress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"addportsegress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"remportsegress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},  
 					"vlaningress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"vlanegress": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"egressif": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 					"sectype": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 						},
 					"ingressif": &schema.Schema{
 						Type:     schema.TypeInt,
-						Optional: true,
+						Optional: true, 
 					},
 				},
 			},
@@ -165,37 +170,85 @@ func dataSourceRealServer() *schema.Resource {
   }
 }
 
-  func dataSourceRealServerRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	c := m.(*ac.Client)
 
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
-	/*diags = append(diags, diag.Diagnostic{
-		Severity: diag.Warning,
-		Summary:  "HostUrl and Token",
-		Detail:   "HostURL:" + c.HostURL + " Token:" + c.Token,
-	  })*/
- 
+  
 	RealServerID := d.Get("index").(string)
+	items := d.Get("items").([]interface{})
+	rss := []ac.RealServerItem{}
 
-	RealServer, err := c.GetRealServer(RealServerID)
+	
+	for _, item := range items {
+	  i := item.(map[string]interface{})
+	  rsi := ac.RealServerItem{
+		  IpAddr: i["ipaddr"].(string),
+		  Name: i["name"].(string),
+		  Weight: i["weight"].(int),
+		  TimeOut: i["timeout"].(int),
+	  }
+	  rss = append(rss, rsi)
+	}
+	prettyJSON, _ := json.MarshalIndent(rss, "", "    ")
+	  diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "rss",
+		Detail:   fmt.Sprint(string(prettyJSON)),
+	  })
+	  
+	rs, err := c.CreateRealServer(rss, RealServerID)
+	diags = append(diags, diag.Diagnostic{
+		Severity: diag.Warning,
+		Summary:  "rs",
+		Detail:   rs.Status,
+	  })
 	if err != nil {
-		return diag.FromErr(err)
+	  return diag.FromErr(err)
+	}
+	if rs.Status == "ok" {
+		d.SetId(RealServerID)
 	}
 	
-	RealServerItems := flattenRealServerItemsData(&RealServer.Items)
-	  
-	if err := d.Set("items", RealServerItems); err != nil {
-		return diag.FromErr(err)
-	}
-
-	d.SetId(RealServerID)
+	resourceRealServerRead(ctx, d, m)
 
 	return diags
-  }
+}
 
-  func flattenRealServerItemsData(RealServerItems *[]ac.RealServerItem) ([]interface{}) {
-	 
+func resourceRealServerRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	c := m.(*ac.Client)
+
+	// Warning or errors can be collected in a slice type
+	var diags diag.Diagnostics
+  
+	RealServerID := d.Id()
+  
+	RealServer, err := c.GetRealServer(RealServerID)
+	if err != nil {
+	  return diag.FromErr(err)
+	}
+  
+	RealServerItems := flattenRealServerItems(&RealServer.Items)
+	if err := d.Set("items", RealServerItems); err != nil {
+	  return diag.FromErr(err)
+	}
+  
+	return diags
+}
+
+func resourceRealServerUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+  return resourceRealServerRead(ctx, d, m)
+}
+
+func resourceRealServerDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+  // Warning or errors can be collected in a slice type
+  var diags diag.Diagnostics
+
+  return diags
+}
+
+func flattenRealServerItems(RealServerItems *[]ac.RealServerItem) []interface{} {
 	if RealServerItems != nil {
 	  rss := make([]interface{}, len(*RealServerItems), len(*RealServerItems))
   
@@ -218,4 +271,3 @@ func dataSourceRealServer() *schema.Resource {
   
 	return make([]interface{}, 0)
   }
-  

@@ -1,0 +1,873 @@
+2020/11/21 16:59:56 [INFO] Terraform version: 0.13.5  
+2020/11/21 16:59:56 [INFO] Go runtime version: go1.14.7
+2020/11/21 16:59:56 [INFO] CLI args: []string{"/home/docker/.terraform.versions/terraform_0.13.5", "apply", "--auto-approve"}
+2020/11/21 16:59:56 [DEBUG] Attempting to open CLI config file: /home/docker/.terraformrc
+2020/11/21 16:59:56 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2020/11/21 16:59:56 Loading CLI configuration from /home/docker/.terraform.d/credentials.tfrc.json
+2020/11/21 16:59:56 [DEBUG] checking for credentials in "/home/docker/.terraform.d/plugins"
+2020/11/21 16:59:56 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2020/11/21 16:59:56 [DEBUG] will search for provider plugins in /home/docker/.terraform.d/plugins
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: /home/docker/.terraform.d/plugins is a symlink to /home/docker/.terraform.d/plugins
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: found github.com/irekromaniuk/alteon v0.1.0 for linux_amd64 at /home/docker/.terraform.d/plugins/github.com/irekromaniuk/alteon/0.1/linux_amd64
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: found github.com/irekromaniuk/example v0.1.0 for linux_amd64 at /home/docker/.terraform.d/plugins/github.com/irekromaniuk/example/0.1/linux_amd64
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: found hashicorp.com/edu/hashicups v0.2.0 for linux_amd64 at /home/docker/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: found hashicorp.com/edu/hashicups v0.2.0 for linux_amd64 at /home/docker/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2.0/linux_amd64
+2020/11/21 16:59:56 [DEBUG] ignoring non-existing provider search directory /home/docker/.local/share/terraform/plugins
+2020/11/21 16:59:56 [DEBUG] ignoring non-existing provider search directory /usr/local/share/terraform/plugins
+2020/11/21 16:59:56 [DEBUG] ignoring non-existing provider search directory /usr/share/terraform/plugins
+2020/11/21 16:59:56 [DEBUG] ignoring non-existing provider search directory /var/lib/snapd/desktop/terraform/plugins
+2020/11/21 16:59:56 [INFO] CLI command args: []string{"apply", "--auto-approve"}
+2020/11/21 16:59:56 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2020/11/21 16:59:56 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2020/11/21 16:59:56 [DEBUG] New state was assigned lineage "bce5a7f9-fd1f-2ee0-50cf-f5b9997ffae4"
+2020/11/21 16:59:56 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2020/11/21 16:59:56 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2020/11/21 16:59:56 [TRACE] providercache.fillMetaCache: scanning directory .terraform/plugins
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: .terraform/plugins is a symlink to .terraform/plugins
+2020/11/21 16:59:56 [TRACE] getproviders.SearchLocalDirectory: found github.com/irekromaniuk/alteon v0.1.0 for linux_amd64 at .terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64
+2020/11/21 16:59:56 [TRACE] providercache.fillMetaCache: including .terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64 as a candidate package for github.com/irekromaniuk/alteon 0.1.0
+2020/11/21 16:59:56 [DEBUG] checking for provisioner in "."
+2020/11/21 16:59:56 [DEBUG] checking for provisioner in "/home/docker/.terraform.versions"
+2020/11/21 16:59:56 [DEBUG] checking for provisioner in "/home/docker/.terraform.d/plugins"
+2020/11/21 16:59:56 [INFO] Failed to read plugin lock file .terraform/plugins/linux_amd64/lock.json: open .terraform/plugins/linux_amd64/lock.json: no such file or directory
+2020/11/21 16:59:56 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2020/11/21 16:59:56 [INFO] backend/local: starting Apply operation
+2020/11/21 16:59:56 [TRACE] backend/local: requesting state manager for workspace "default"
+2020/11/21 16:59:56 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2020/11/21 16:59:56 [TRACE] backend/local: requesting state lock for workspace "default"
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: preparing to manage state snapshots at terraform.tfstate
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: existing snapshot has lineage "06fd4deb-45e2-3754-9095-7166640d4a1d" serial 3
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: locking terraform.tfstate using fcntl flock
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: writing lock metadata to .terraform.tfstate.lock.info
+2020/11/21 16:59:56 [TRACE] backend/local: reading remote state for workspace "default"
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2020/11/21 16:59:56 [TRACE] statemgr.Filesystem: read snapshot with lineage "06fd4deb-45e2-3754-9095-7166640d4a1d" serial 3
+2020/11/21 16:59:56 [TRACE] backend/local: retrieving local state snapshot for workspace "default"
+2020/11/21 16:59:56 [TRACE] backend/local: building context for current working directory
+2020/11/21 16:59:56 [TRACE] terraform.NewContext: starting
+2020/11/21 16:59:56 [TRACE] terraform.NewContext: loading provider schemas
+2020/11/21 16:59:56 [TRACE] LoadSchemas: retrieving schema for provider type "github.com/irekromaniuk/alteon"
+2020-11-21T16:59:56.720-0500 [INFO]  plugin: configuring client automatic mTLS
+2020-11-21T16:59:56.758-0500 [DEBUG] plugin: starting plugin: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon args=[.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon]
+2020-11-21T16:59:56.764-0500 [DEBUG] plugin: plugin started: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11967
+2020-11-21T16:59:56.764-0500 [DEBUG] plugin: waiting for RPC address: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon
+2020-11-21T16:59:56.775-0500 [INFO]  plugin.terraform-provider-alteon: configuring server automatic mTLS: timestamp=2020-11-21T16:59:56.774-0500
+2020-11-21T16:59:56.820-0500 [DEBUG] plugin.terraform-provider-alteon: plugin address: address=/tmp/plugin695452526 network=unix timestamp=2020-11-21T16:59:56.820-0500
+2020-11-21T16:59:56.820-0500 [DEBUG] plugin: using plugin: version=5
+2020/11/21 16:59:56 [TRACE] GRPCProvider: GetSchema
+2020-11-21T16:59:56.918-0500 [TRACE] plugin.stdio: waiting for stdio data
+2020/11/21 16:59:56 [TRACE] GRPCProvider: Close
+2020-11-21T16:59:56.922-0500 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2020-11-21T16:59:56.924-0500 [DEBUG] plugin: plugin process exited: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11967
+2020-11-21T16:59:56.924-0500 [DEBUG] plugin: plugin exited
+2020/11/21 16:59:56 [TRACE] terraform.NewContext: complete
+2020/11/21 16:59:56 [TRACE] backend/local: finished building terraform.Context
+2020/11/21 16:59:56 [TRACE] backend/local: requesting interactive input, if necessary
+2020/11/21 16:59:56 [TRACE] Context.Input: Prompting for provider arguments
+2020/11/21 16:59:56 [TRACE] Context.Input: Provider provider.alteon declared at main.tf:10,1-18
+2020/11/21 16:59:56 [TRACE] Context.Input: Input for provider.alteon: map[string]cty.Value{}
+2020/11/21 16:59:56 [TRACE] backend/local: running validation operation
+2020/11/21 16:59:56 [INFO] terraform: building graph: GraphTypeValidate
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/11/21 16:59:56 [TRACE] ConfigTransformer: Starting for path: 
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+  ------
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/11/21 16:59:56 [TRACE] StateTransformer: state is empty, so nothing to do
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/11/21 16:59:56 [TRACE] AttachResourceConfigTransformer: attaching to "alteon_real_server.LabServer" (*terraform.NodeValidatableResource) config from main.tf:21,1-42
+2020/11/21 16:59:56 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to alteon_real_server.LabServer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/11/21 16:59:56 [TRACE] ProviderConfigTransformer: attaching to "provider[\"github.com/irekromaniuk/alteon\"]" provider configuration from main.tf:10,1-18
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/11/21 16:59:56 [TRACE] ProviderTransformer: exact match for provider["github.com/irekromaniuk/alteon"] serving alteon_real_server.LabServer
+2020/11/21 16:59:56 [DEBUG] ProviderTransformer: "alteon_real_server.LabServer" (*terraform.NodeValidatableResource) needs provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/11/21 16:59:56 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/11/21 16:59:56 [TRACE] AttachSchemaTransformer: attaching resource schema to alteon_real_server.LabServer
+2020/11/21 16:59:56 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/11/21 16:59:56 [DEBUG] ReferenceTransformer: "alteon_real_server.LabServer" references: []
+2020/11/21 16:59:56 [DEBUG] ReferenceTransformer: "provider[\"github.com/irekromaniuk/alteon\"]" references: []
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.attachDataResourceDependenciesTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.attachDataResourceDependenciesTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:56 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/11/21 16:59:56 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeValidatableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeValidatableResource
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:56 [DEBUG] Starting graph walk: walkValidate
+2020/11/21 16:59:56 [TRACE] dag/walk: visiting "provider[\"github.com/irekromaniuk/alteon\"]"
+2020/11/21 16:59:56 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": starting visit (*terraform.NodeApplyableProvider)
+2020/11/21 16:59:56 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": evaluating
+2020/11/21 16:59:56 [TRACE] [walkValidate] Entering eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:56 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:56 [TRACE] eval: *terraform.EvalInitProvider
+2020-11-21T16:59:56.938-0500 [INFO]  plugin: configuring client automatic mTLS
+2020-11-21T16:59:56.980-0500 [DEBUG] plugin: starting plugin: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon args=[.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon]
+2020-11-21T16:59:56.987-0500 [DEBUG] plugin: plugin started: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11980
+2020-11-21T16:59:56.987-0500 [DEBUG] plugin: waiting for RPC address: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon
+2020-11-21T16:59:57.000-0500 [INFO]  plugin.terraform-provider-alteon: configuring server automatic mTLS: timestamp=2020-11-21T16:59:57.000-0500
+2020-11-21T16:59:57.045-0500 [DEBUG] plugin.terraform-provider-alteon: plugin address: address=/tmp/plugin551855411 network=unix timestamp=2020-11-21T16:59:57.045-0500
+2020-11-21T16:59:57.045-0500 [DEBUG] plugin: using plugin: version=5
+2020/11/21 16:59:57 [TRACE] BuiltinEvalContext: Initialized "provider[\"github.com/irekromaniuk/alteon\"]" provider for provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalOpFilter
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalValidateProvider
+2020/11/21 16:59:57 [TRACE] buildProviderConfig for provider["github.com/irekromaniuk/alteon"]: using explicit config only
+2020/11/21 16:59:57 [TRACE] GRPCProvider: GetSchema
+2020-11-21T16:59:57.136-0500 [TRACE] plugin.stdio: waiting for stdio data
+2020/11/21 16:59:57 [TRACE] GRPCProvider: PrepareProviderConfig
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkValidate] Exiting eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": starting visit (*terraform.NodeValidatableResource)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": evaluating
+2020/11/21 16:59:57 [TRACE] [walkValidate] Entering eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalValidateResource
+2020/11/21 16:59:57 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/11/21 16:59:57 [TRACE] [walkValidate] Exiting eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": evaluating
+2020/11/21 16:59:57 [TRACE] [walkValidate] Entering eval tree: meta.count-boundary (EachMode fixup)
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2020/11/21 16:59:57 [TRACE] [walkValidate] Exiting eval tree: meta.count-boundary (EachMode fixup)
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "provider[\"github.com/irekromaniuk/alteon\"] (close)"
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": evaluating
+2020/11/21 16:59:57 [TRACE] [walkValidate] Entering eval tree: provider["github.com/irekromaniuk/alteon"] (close)
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCloseProvider
+2020/11/21 16:59:57 [TRACE] GRPCProvider: Close
+2020-11-21T16:59:57.144-0500 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2020-11-21T16:59:57.145-0500 [DEBUG] plugin: plugin process exited: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11980
+2020-11-21T16:59:57.145-0500 [DEBUG] plugin: plugin exited
+2020/11/21 16:59:57 [TRACE] [walkValidate] Exiting eval tree: provider["github.com/irekromaniuk/alteon"] (close)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "root"
+2020/11/21 16:59:57 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2020/11/21 16:59:57 [TRACE] vertex "root": evaluating
+2020/11/21 16:59:57 [TRACE] [walkValidate] Entering eval tree: root
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkValidate] Exiting eval tree: root
+2020/11/21 16:59:57 [TRACE] vertex "root": visit complete
+2020/11/21 16:59:57 [INFO] backend/local: apply calling Refresh
+2020/11/21 16:59:57 [INFO] terraform: building graph: GraphTypeRefresh
+2020/11/21 16:59:57 [TRACE] No managed resources in state during refresh; skipping managed resource transformer
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/11/21 16:59:57 [TRACE] ConfigTransformer: Starting for path: 
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ConfigTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/11/21 16:59:57 [TRACE] StateTransformer: state is empty, so nothing to do
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/11/21 16:59:57 [TRACE] ProviderConfigTransformer: attaching to "provider[\"github.com/irekromaniuk/alteon\"]" provider configuration from main.tf:10,1-18
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/11/21 16:59:57 [DEBUG] pruning unused provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer with new graph:
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.graphTransformerMulti (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.attachDataResourceDependenciesTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.attachDataResourceDependenciesTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  root - *terraform.nodeCloseModule
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer (no changes)
+2020/11/21 16:59:57 [DEBUG] Starting graph walk: walkRefresh
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "root"
+2020/11/21 16:59:57 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2020/11/21 16:59:57 [TRACE] vertex "root": evaluating
+2020/11/21 16:59:57 [TRACE] [walkRefresh] Entering eval tree: root
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkRefresh] Exiting eval tree: root
+2020/11/21 16:59:57 [TRACE] vertex "root": visit complete
+2020/11/21 16:59:57 [INFO] backend/local: apply calling Plan
+2020/11/21 16:59:57 [INFO] terraform: building graph: GraphTypePlan
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/11/21 16:59:57 [TRACE] ConfigTransformer: Starting for path: 
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/11/21 16:59:57 [TRACE] StateTransformer: state is empty, so nothing to do
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching to "alteon_real_server.LabServer (expand)" (*terraform.nodeExpandPlannableResource) config from main.tf:21,1-42
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/11/21 16:59:57 [TRACE] ProviderConfigTransformer: attaching to "provider[\"github.com/irekromaniuk/alteon\"]" provider configuration from main.tf:10,1-18
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/11/21 16:59:57 [TRACE] ProviderTransformer: exact match for provider["github.com/irekromaniuk/alteon"] serving alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [DEBUG] ProviderTransformer: "alteon_real_server.LabServer (expand)" (*terraform.nodeExpandPlannableResource) needs provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/11/21 16:59:57 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] AttachSchemaTransformer: attaching resource schema to alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "alteon_real_server.LabServer (expand)" references: []
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "provider[\"github.com/irekromaniuk/alteon\"]" references: []
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.attachDataResourceDependenciesTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.attachDataResourceDependenciesTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2020/11/21 16:59:57 [TRACE] ForcedCBDTransformer: "alteon_real_server.LabServer (expand)" (*terraform.nodeExpandPlannableResource) has no CBD descendent, so skipping
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandPlannableResource
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:57 [DEBUG] Starting graph walk: walkPlan
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "provider[\"github.com/irekromaniuk/alteon\"]"
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": starting visit (*terraform.NodeApplyableProvider)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalInitProvider
+2020-11-21T16:59:57.161-0500 [INFO]  plugin: configuring client automatic mTLS
+2020-11-21T16:59:57.204-0500 [DEBUG] plugin: starting plugin: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon args=[.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon]
+2020-11-21T16:59:57.211-0500 [DEBUG] plugin: plugin started: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11992
+2020-11-21T16:59:57.211-0500 [DEBUG] plugin: waiting for RPC address: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon
+2020-11-21T16:59:57.220-0500 [INFO]  plugin.terraform-provider-alteon: configuring server automatic mTLS: timestamp=2020-11-21T16:59:57.220-0500
+2020-11-21T16:59:57.263-0500 [DEBUG] plugin.terraform-provider-alteon: plugin address: network=unix address=/tmp/plugin405564515 timestamp=2020-11-21T16:59:57.262-0500
+2020-11-21T16:59:57.263-0500 [DEBUG] plugin: using plugin: version=5
+2020/11/21 16:59:57 [TRACE] BuiltinEvalContext: Initialized "provider[\"github.com/irekromaniuk/alteon\"]" provider for provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalOpFilter
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalOpFilter
+2020-11-21T16:59:57.370-0500 [TRACE] plugin.stdio: waiting for stdio data
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalConfigProvider
+2020/11/21 16:59:57 [TRACE] buildProviderConfig for provider["github.com/irekromaniuk/alteon"]: using explicit config only
+2020/11/21 16:59:57 [TRACE] GRPCProvider: GetSchema
+2020/11/21 16:59:57 [TRACE] GRPCProvider: Configure
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer (expand)"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": starting visit (*terraform.nodeExpandPlannableResource)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": expanding dynamic subgraph
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": entering dynamic subgraph
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": starting visit (*terraform.NodePlannableResource)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteResourceState
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": expanding dynamic subgraph
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/11/21 16:59:57 [TRACE] ResourceCountTransformer: adding alteon_real_server.LabServer as *terraform.NodePlannableResourceInstance
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodePlannableResourceInstance
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceCountTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceCountTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/11/21 16:59:57 [DEBUG] Resource instance state not found for node "alteon_real_server.LabServer", instance alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "alteon_real_server.LabServer" references: []
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": entering dynamic subgraph
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": starting visit (*terraform.NodePlannableResourceInstance)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReadState
+2020/11/21 16:59:57 [TRACE] EvalReadState: reading state for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] EvalReadState: no state present for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalValidateSelfRef
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalDiff
+2020/11/21 16:59:57 [TRACE] Re-validating config for "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/11/21 16:59:57 [TRACE] GRPCProvider: PlanResourceChange
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCheckPreventDestroy
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteState
+2020/11/21 16:59:57 [TRACE] EvalWriteState: writing current state object for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteDiff
+2020/11/21 16:59:57 [TRACE] EvalWriteDiff: recorded Create change for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": visit complete
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": dynamic subgraph completed successfully
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": visit complete
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": dynamic subgraph completed successfully
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "provider[\"github.com/irekromaniuk/alteon\"] (close)"
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: provider["github.com/irekromaniuk/alteon"] (close)
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCloseProvider
+2020/11/21 16:59:57 [TRACE] GRPCProvider: Close
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: meta.count-boundary (EachMode fixup)
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: meta.count-boundary (EachMode fixup)
+2020/11/21 16:59:57 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2020-11-21T16:59:57.394-0500 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2020-11-21T16:59:57.397-0500 [DEBUG] plugin: plugin process exited: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=11992
+2020-11-21T16:59:57.397-0500 [DEBUG] plugin: plugin exited
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: provider["github.com/irekromaniuk/alteon"] (close)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"] (close)": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "root"
+2020/11/21 16:59:57 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2020/11/21 16:59:57 [TRACE] vertex "root": evaluating
+2020/11/21 16:59:57 [TRACE] [walkPlan] Entering eval tree: root
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkPlan] Exiting eval tree: root
+2020/11/21 16:59:57 [TRACE] vertex "root": visit complete
+2020/11/21 16:59:57 [INFO] backend/local: apply calling Apply
+2020/11/21 16:59:57 [INFO] terraform: building graph: GraphTypeApply
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/11/21 16:59:57 [TRACE] ConfigTransformer: Starting for path: 
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.DiffTransformer
+2020/11/21 16:59:57 [TRACE] DiffTransformer starting
+2020/11/21 16:59:57 [TRACE] DiffTransformer: found Create change for alteon_real_server.LabServer 
+2020/11/21 16:59:57 [TRACE] DiffTransformer: alteon_real_server.LabServer will be represented by alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] DiffTransformer complete
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.DiffTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching to "alteon_real_server.LabServer" (*terraform.NodeApplyableResourceInstance) config from main.tf:21,1-42
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching to "alteon_real_server.LabServer (expand)" (*terraform.nodeExpandApplyableResource) config from main.tf:21,1-42
+2020/11/21 16:59:57 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/11/21 16:59:57 [DEBUG] Resource state not found for node "alteon_real_server.LabServer", instance alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/11/21 16:59:57 [TRACE] ProviderConfigTransformer: attaching to "provider[\"github.com/irekromaniuk/alteon\"]" provider configuration from main.tf:10,1-18
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/11/21 16:59:57 [TRACE] ProviderTransformer: exact match for provider["github.com/irekromaniuk/alteon"] serving alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [DEBUG] ProviderTransformer: "alteon_real_server.LabServer (expand)" (*terraform.nodeExpandApplyableResource) needs provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] ProviderTransformer: exact match for provider["github.com/irekromaniuk/alteon"] serving alteon_real_server.LabServer
+2020/11/21 16:59:57 [DEBUG] ProviderTransformer: "alteon_real_server.LabServer" (*terraform.NodeApplyableResourceInstance) needs provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/11/21 16:59:57 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/11/21 16:59:57 [TRACE] AttachSchemaTransformer: attaching resource schema to alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] AttachSchemaTransformer: attaching resource schema to alteon_real_server.LabServer (expand)
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "alteon_real_server.LabServer (expand)" references: []
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "alteon_real_server.LabServer" references: []
+2020/11/21 16:59:57 [DEBUG] ReferenceTransformer: "provider[\"github.com/irekromaniuk/alteon\"]" references: []
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2020/11/21 16:59:57 [TRACE] AttachDependenciesTransformer: alteon_real_server.LabServer depends on []
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2020/11/21 16:59:57 [TRACE] ForcedCBDTransformer: "alteon_real_server.LabServer" (*terraform.NodeApplyableResourceInstance) has no CBD descendent, so skipping
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.DestroyEdgeTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.DestroyEdgeTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CBDEdgeTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CBDEdgeTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.destroyRootOutputTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.destroyRootOutputTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.pruneUnusedNodesTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.pruneUnusedNodesTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.applyDestroyNodeReferenceFixupTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.applyDestroyNodeReferenceFixupTransformer (no changes)
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:57 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/11/21 16:59:57 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+    alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+  alteon_real_server.LabServer (expand) - *terraform.nodeExpandApplyableResource
+    provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+  provider["github.com/irekromaniuk/alteon"] - *terraform.NodeApplyableProvider
+  provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+    alteon_real_server.LabServer - *terraform.NodeApplyableResourceInstance
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["github.com/irekromaniuk/alteon"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2020/11/21 16:59:57 [DEBUG] Starting graph walk: walkApply
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "provider[\"github.com/irekromaniuk/alteon\"]"
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": starting visit (*terraform.NodeApplyableProvider)
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": evaluating
+2020/11/21 16:59:57 [TRACE] [walkApply] Entering eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalInitProvider
+2020-11-21T16:59:57.417-0500 [INFO]  plugin: configuring client automatic mTLS
+2020-11-21T16:59:57.470-0500 [DEBUG] plugin: starting plugin: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon args=[.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon]
+2020-11-21T16:59:57.477-0500 [DEBUG] plugin: plugin started: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=12004
+2020-11-21T16:59:57.477-0500 [DEBUG] plugin: waiting for RPC address: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon
+2020-11-21T16:59:57.489-0500 [INFO]  plugin.terraform-provider-alteon: configuring server automatic mTLS: timestamp=2020-11-21T16:59:57.488-0500
+2020-11-21T16:59:57.537-0500 [DEBUG] plugin: using plugin: version=5
+2020-11-21T16:59:57.537-0500 [DEBUG] plugin.terraform-provider-alteon: plugin address: address=/tmp/plugin593133491 network=unix timestamp=2020-11-21T16:59:57.537-0500
+2020/11/21 16:59:57 [TRACE] BuiltinEvalContext: Initialized "provider[\"github.com/irekromaniuk/alteon\"]" provider for provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalOpFilter
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalOpFilter
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalConfigProvider
+2020-11-21T16:59:57.629-0500 [TRACE] plugin.stdio: waiting for stdio data
+2020/11/21 16:59:57 [TRACE] buildProviderConfig for provider["github.com/irekromaniuk/alteon"]: using explicit config only
+2020/11/21 16:59:57 [TRACE] GRPCProvider: GetSchema
+2020/11/21 16:59:57 [TRACE] GRPCProvider: Configure
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] [walkApply] Exiting eval tree: provider["github.com/irekromaniuk/alteon"]
+2020/11/21 16:59:57 [TRACE] vertex "provider[\"github.com/irekromaniuk/alteon\"]": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer (expand)"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": starting visit (*terraform.nodeExpandApplyableResource)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": expanding dynamic subgraph
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": entering dynamic subgraph
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": starting visit (*terraform.NodeApplyableResource)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": evaluating
+2020/11/21 16:59:57 [TRACE] [walkApply] Entering eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteResourceState
+2020/11/21 16:59:57 [TRACE] [walkApply] Exiting eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": visit complete
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": dynamic subgraph completed successfully
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer (expand)": visit complete
+2020/11/21 16:59:57 [TRACE] dag/walk: visiting "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": starting visit (*terraform.NodeApplyableResourceInstance)
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": evaluating
+2020/11/21 16:59:57 [TRACE] [walkApply] Entering eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalSequence
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReadDiff
+2020/11/21 16:59:57 [TRACE] EvalReadDiff: Read Create change from plan for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalIf
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalIf
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReadState
+2020/11/21 16:59:57 [TRACE] EvalReadState: reading state for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] EvalReadState: no state present for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReadDiff
+2020/11/21 16:59:57 [TRACE] EvalReadDiff: Read Create change from plan for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalDiff
+2020/11/21 16:59:57 [TRACE] Re-validating config for "alteon_real_server.LabServer"
+2020/11/21 16:59:57 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/11/21 16:59:57 [TRACE] GRPCProvider: PlanResourceChange
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalCheckPlannedChange
+2020/11/21 16:59:57 [TRACE] EvalCheckPlannedChange: Verifying that actual change (action Create) matches planned change (action Create)
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalGetProvider
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReadState
+2020/11/21 16:59:57 [TRACE] EvalReadState: reading state for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] EvalReadState: no state present for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalReduceDiff
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalIf
+2020/11/21 16:59:57 [TRACE] eval: terraform.EvalNoop
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalApplyPre
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalApply
+2020/11/21 16:59:57 [DEBUG] EvalApply: ProviderMeta config value set
+2020/11/21 16:59:57 [DEBUG] alteon_real_server.LabServer: applying the planned Create change
+2020/11/21 16:59:57 [TRACE] GRPCProvider: ApplyResourceChange
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: panic: runtime error: invalid memory address or nil pointer dereference
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: [signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0xadfc99]
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: goroutine 44 [running]:
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: terraform-provider-alteon/alteon.resourceRealServerCreate(0xd37200, 0xc000380780, 0xc0000ea680, 0xb907a0, 0xc000219b30, 0xc000485810, 0x6dea6a, 0xc0006cff80)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/alteon/resource_RealServer.go:203 +0x579
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema.(*Resource).create(0xc000392580, 0xd37180, 0xc00038d980, 0xc0000ea680, 0xb907a0, 0xc000219b30, 0x0, 0x0, 0x0)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema/resource.go:275 +0x1ea
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema.(*Resource).Apply(0xc000392580, 0xd37180, 0xc00038d980, 0xc000243e30, 0xc0006cff80, 0xb907a0, 0xc000219b30, 0x0, 0x0, 0x0, ...)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema/resource.go:386 +0x67b
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema.(*GRPCProviderServer).ApplyResourceChange(0xc0003880a0, 0xd37180, 0xc00038d980, 0xc000309c20, 0xc00038d980, 0xc000093900, 0xd40b20)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema/grpc_provider.go:951 +0x8cf
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: github.com/hashicorp/terraform-plugin-go/tfprotov5/server.(*server).ApplyResourceChange(0xc000593b00, 0xd37180, 0xc00038d980, 0xc000243c00, 0xc000593b00, 0xc000303350, 0xc000072ba0)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/github.com/hashicorp/terraform-plugin-go/tfprotov5/server/server.go:331 +0xae
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: github.com/hashicorp/terraform-plugin-go/tfprotov5/internal/tfplugin5._Provider_ApplyResourceChange_Handler(0xc18680, 0xc000593b00, 0xd37240, 0xc000303350, 0xc000093920, 0x0, 0xd37240, 0xc000303350, 0xc000676800, 0x382)
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/github.com/hashicorp/terraform-plugin-go/tfprotov5/internal/tfplugin5/tfplugin5_grpc.pb.go:380 +0x214
+2020-11-21T16:59:57.743-0500 [DEBUG] plugin.terraform-provider-alteon: google.golang.org/grpc.(*Server).processUnaryRPC(0xc0003a6380, 0xd3ec20, 0xc000582780, 0xc000330600, 0xc000382b40, 0x1154c60, 0x0, 0x0, 0x0)
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/google.golang.org/grpc/server.go:1194 +0x522
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: google.golang.org/grpc.(*Server).handleStream(0xc0003a6380, 0xd3ec20, 0xc000582780, 0xc000330600, 0x0)
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/google.golang.org/grpc/server.go:1517 +0xd05
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: google.golang.org/grpc.(*Server).serveStreams.func1.2(0xc000038340, 0xc0003a6380, 0xd3ec20, 0xc000582780, 0xc000330600)
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/google.golang.org/grpc/server.go:859 +0xa5
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: created by google.golang.org/grpc.(*Server).serveStreams.func1
+2020-11-21T16:59:57.744-0500 [DEBUG] plugin.terraform-provider-alteon: 	/mnt/c/Users/iromaniuk/terraform-alteon/terraform-provider-alteon/vendor/google.golang.org/grpc/server.go:857 +0x1fd
+2020-11-21T16:59:57.746-0500 [DEBUG] plugin: plugin process exited: path=.terraform/plugins/github.com/irekromaniuk/alteon/0.1.0/linux_amd64/terraform-provider-alteon pid=12004 error="exit status 2"
+2020/11/21 16:59:57 [DEBUG] alteon_real_server.LabServer: apply errored, but we're indicating that via the Error pointer rather than returning it: rpc error: code = Unavailable desc = transport is closing
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalMaybeTainted
+2020/11/21 16:59:57 [TRACE] EvalMaybeTainted: alteon_real_server.LabServer encountered an error during creation, so it is now marked as tainted
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteState
+2020/11/21 16:59:57 [TRACE] EvalWriteState: removing state object for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalApplyProvisioners
+2020/11/21 16:59:57 [TRACE] EvalApplyProvisioners: alteon_real_server.LabServer has no state, so skipping provisioners
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalMaybeTainted
+2020/11/21 16:59:57 [TRACE] EvalMaybeTainted: alteon_real_server.LabServer encountered an error during creation, so it is now marked as tainted
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteState
+2020/11/21 16:59:57 [TRACE] EvalWriteState: removing state object for alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalIf
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalIf
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalWriteDiff
+2020/11/21 16:59:57 [TRACE] eval: *terraform.EvalApplyPost
+2020/11/21 16:59:57 [ERROR] eval: *terraform.EvalApplyPost, err: rpc error: code = Unavailable desc = transport is closing
+2020/11/21 16:59:57 [ERROR] eval: *terraform.EvalSequence, err: rpc error: code = Unavailable desc = transport is closing
+2020/11/21 16:59:57 [TRACE] [walkApply] Exiting eval tree: alteon_real_server.LabServer
+2020/11/21 16:59:57 [TRACE] vertex "alteon_real_server.LabServer": visit complete
+2020-11-21T16:59:57.746-0500 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2020/11/21 16:59:57 [TRACE] dag/walk: upstream of "provider[\"github.com/irekromaniuk/alteon\"] (close)" errored, so skipping
+2020/11/21 16:59:57 [TRACE] dag/walk: upstream of "meta.count-boundary (EachMode fixup)" errored, so skipping
+2020/11/21 16:59:57 [TRACE] dag/walk: upstream of "root" errored, so skipping
+2020/11/21 16:59:57 [TRACE] statemgr.Filesystem: not making a backup, because the new snapshot is identical to the old
+2020/11/21 16:59:57 [TRACE] statemgr.Filesystem: no state changes since last snapshot
+2020/11/21 16:59:57 [TRACE] statemgr.Filesystem: writing snapshot at terraform.tfstate
+2020/11/21 16:59:57 [TRACE] statemgr.Filesystem: removing lock metadata file .terraform.tfstate.lock.info
+2020/11/21 16:59:57 [TRACE] statemgr.Filesystem: unlocking terraform.tfstate using fcntl flock
+2020-11-21T16:59:57.755-0500 [DEBUG] plugin: plugin exited
