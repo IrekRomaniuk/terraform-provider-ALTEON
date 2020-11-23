@@ -1,14 +1,20 @@
-# terraform-provider-alteon
+# terraform-provider-alteon (version 0.1)
 
-Tested with Alteon VA (Standalone) Version 32.6.1.0
+Tested with Alteon VA (Standalone) Version 32.6.1.0 and Terraform v.0.13
 
-### Tables implemented:
+### Alteon tables implemented:
 
-- SlbNewCfgEnhRealServerTable: RealServerTable
+- SlbNewCfgEnhRealServerTable: Real Servers
+
+### Alteon tables to be implemented:
+
+- SlbNewCfgEnhGroupTable: Server Groups
+- SlbNewCfgEnhVirtServerTable: Virtual Servers
+- VrrpNewCfgVirtRtrTable: Virtual Routers
 
 ### Resources implemented:
 
-main.tf
+Example of main.tf
 
 ```
 
@@ -24,20 +30,20 @@ terraform {
 provider "alteon" {
 }
 
-data "alteon_real_server" "LabServer" {
-  index="LabServer1"
-}
-
-output "LabServer" {
-  value = data.alteon_real_server.LabServer
-}
-
 resource "alteon_real_server" "LabServer" {
   index="LabServer1"
   items {
       ipaddr="1.1.1.1"
       name="description"
     }
+}
+
+data "alteon_real_server" "LabServer" {
+  index="LabServer1"
+}
+
+output "LabServer" {
+  value = data.alteon_real_server.LabServer
 }
 
 ```
@@ -54,6 +60,7 @@ echo $ALTEON_URI
 
 cd examples
 terraform init && terraform apply --auto-approve
+terraform providers schema -json
 ```
 
 ### Notes:
@@ -67,7 +74,7 @@ go mod vendor
 or just
 
 ```
-make make update-go-deps
+make update-go-deps
 make install
 ```
 

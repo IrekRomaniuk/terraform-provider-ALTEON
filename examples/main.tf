@@ -18,22 +18,22 @@ output "LabServer" {
   value = data.alteon_real_server.LabServer
 }*/
 
-resource "alteon_real_server" "LabServer" {
-  index="LabServer22"
+/*resource "alteon_real_server" "LabServer" {
+  index="LabServer1"
   items {
-    	ipaddr="1.1.1.1"
-      name="description"
-      weight=1
-      timeout=2
+    	ipaddr="1.1.1.2"
+      name="description2"
+      //weight=1
+      //timeout=2
+      state=2
     }
-}
+}*/
 
-/*resource "alteon_real_server" "LabServer2" {
-  index="LabServer3"
+resource "alteon_real_server" "LabServer2" {
+  index="LabServer2"
   items {
     	ipaddr="2.2.2.2"
       name="description2"
-      weight=1
-      timeout=2
+      state=2
     }
-}*/
+}

@@ -203,13 +203,15 @@ func dataSourceRealServer() *schema.Resource {
 		rsi := make(map[string]interface{})
 		
 		rsi["ipaddr"] = RealServerItem.IpAddr
+		rsi["name"] = RealServerItem.Name
 		rsi["weight"] = RealServerItem.Weight
 		rsi["maxconns"] = RealServerItem.MaxConns
 		rsi["timeout"] = RealServerItem.TimeOut
 		rsi["pinginterval"] = RealServerItem.PingInterval
 		rsi["failretry"] = RealServerItem.FailRetry
 		rsi["succretry"] = RealServerItem.SuccRetry
-  
+		rsi["state"] = RealServerItem.State
+		
 		rss[i] = rsi
 	  }
   

@@ -199,10 +199,15 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 	for _, item := range items {
 	  i := item.(map[string]interface{})
 	  rsi := ac.RealServerItem{
-		  IpAddr: i["ipaddr"].(string),
-		  Name: i["name"].(string),
-		  Weight: i["weight"].(int),
-		  TimeOut: i["timeout"].(int),
+		IpAddr: i["ipaddr"].(string),
+		Name: i["name"].(string),
+		Weight: i["weight"].(int),
+		TimeOut: i["timeout"].(int),
+		State: i["state"].(int),
+		MaxConns: i["maxconns"].(int),
+		PingInterval: i["pinginterval"].(int),
+		FailRetry: i["failretry"].(int),
+		SuccRetry: i["succretry"].(int),
 	  }
 	  rss = append(rss, rsi)
 	}
@@ -211,14 +216,14 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 		Severity: diag.Warning,
 		Summary:  "rss",
 		Detail:   fmt.Sprint(string(prettyJSON)),
-	  })*/
-	  
+	  })
+	return diags*/ 
 	rs, err := c.CreateRealServer(rss, RealServerID)
-	diags = append(diags, diag.Diagnostic{
+	/*diags = append(diags, diag.Diagnostic{
 		Severity: diag.Warning,
 		Summary:  "rs",
 		Detail:   rs.Status,
-	  })
+	  })*/
 	if err != nil {
 	  return diag.FromErr(err)
 	}
@@ -276,6 +281,10 @@ func resourceRealServerUpdate(ctx context.Context, d *schema.ResourceData, m int
 				Weight: i["weight"].(int),
 				TimeOut: i["timeout"].(int),
 				State: i["state"].(int),
+				MaxConns: i["maxconns"].(int),
+				PingInterval: i["pinginterval"].(int),
+				FailRetry: i["failretry"].(int),
+				SuccRetry: i["succretry"].(int),
 			}
 			rss = append(rss, rsi)
 		}
@@ -321,12 +330,14 @@ func flattenRealServerItems(RealServerItems *[]ac.RealServerItem) []interface{} 
 		rsi := make(map[string]interface{})
 		
 		rsi["ipaddr"] = RealServerItem.IpAddr
+		rsi["name"] = RealServerItem.Name
 		rsi["weight"] = RealServerItem.Weight
 		rsi["maxconns"] = RealServerItem.MaxConns
 		rsi["timeout"] = RealServerItem.TimeOut
 		rsi["pinginterval"] = RealServerItem.PingInterval
 		rsi["failretry"] = RealServerItem.FailRetry
 		rsi["succretry"] = RealServerItem.SuccRetry
+		rsi["state"] = RealServerItem.State
   
 		rss[i] = rsi
 	  }
