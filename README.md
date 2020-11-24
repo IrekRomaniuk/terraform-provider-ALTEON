@@ -37,13 +37,7 @@ output "LabServer" {
 }
 
 ```
-The following env variables should be set and exported (IP address is an example only):
 
-```
-export ALTEON_USERNAME=admin
-export ALTEON_PASSWORD=
-export ALTEON_URI=https://13.92.134.158:8443/config
-```
 
 
 

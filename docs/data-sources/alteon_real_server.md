@@ -1,6 +1,6 @@
-# alteon_real_server Alteon Real Servers
+# alteon_real_server Data
 
-Maintaines Alteon Real Server table SlbNewCfgEnhRealServerTable.  
+Reads Alteon Real Server table SlbNewCfgEnhRealServerTable.  
 
 ## Example Usage
 
@@ -16,5 +16,5 @@ output "LabServer" {
 
 ## Argument Reference
 
-Index - The real server number
+- `Index` - string, the real server number
 
