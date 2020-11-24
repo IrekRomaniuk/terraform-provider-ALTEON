@@ -16,13 +16,13 @@ resource "alteon_real_server" "LabServer" {
 
 ## Argument Reference
 
-- `Index` - String, the real server number, 
+- `Index` - String, the real server number/name, 
 
 - `IpAddr` - IPAddress, IP address of the real server identified by the instance of * slbRealServerIndex.
 
-- `Weight` - integer, the server weight.
+- `Weight` - integer, default 1, the server weight.
 
-- `MaxConns` - integer, the maximum number of connections that are allowed.
+- `MaxConns` - integer,  default 10, the maximum number of connections that are allowed.
 
 - `TimeOut` - integer, the maximum number of minutes an inactive connection remains open.
 
@@ -32,6 +32,6 @@ resource "alteon_real_server" "LabServer" {
 
 - `SuccRetry` - integer, the number of successful attempts to declare a server UP.
 
-- `State` - integer, enable or disable the server and remove the existing sessions using disabled-with-fastage option. // {2=ENABLED, 3=DISABLED, 4=DISABLED_WITH_FASTAGE}
+- `State` - integer, default 3, enable or disable the server and remove the existing sessions using disabled-with-fastage option. {2=ENABLED, 3=DISABLED}
 
-- `Name` - string, the name of the real server, string
+- `Name` - string, the name/description of the real server
