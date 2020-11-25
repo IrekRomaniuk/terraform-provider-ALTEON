@@ -1,3 +1,4 @@
+![release](https://github.com/IrekRomaniuk/terraform-provider-ALTEON/workflows/release/badge.svg)
 # Alteon Provider
 
 This provider interacts with Radware Alteon VA (Standalone) API, tested with version 32.6.1.0 (and Terraform v.0.13). Provider uses [go client from the repo](https://github.com/IrekRomaniuk/alteon-client-go)
