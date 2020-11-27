@@ -10,14 +10,6 @@ terraform {
 provider "alteon" {
 }
 
-/*data "alteon_real_server" "LabServer" {
-  index="LabServer1"
-}
-
-output "LabServer" {
-  value = data.alteon_real_server.LabServer
-}*/
-
 /*resource "alteon_real_server" "LabServer" {
   index="LabServer1"
   items {
@@ -29,14 +21,22 @@ output "LabServer" {
     }
 }*/
 
-resource "alteon_real_server" "LabServer2" {
+/*resource "alteon_real_server" "LabServer2" {
   index="LabServer2"
   items {
-    	ipaddr="2.2.2.2"
+    	ipaddr="2.2.2.3"
       name="description2"
       state=2
     }
 }
+
+data "alteon_real_server" "LabServer" {
+  index="LabServer2"
+}
+
+output "LabServer" {
+  value = data.alteon_real_server.LabServer
+}*/
 
 /*resource "alteon_server_group" "LabServers" {
   
