@@ -1,9 +1,11 @@
-## 0.1.0 (Unreleased)
+ 
+### 0.2.0-pre (11/27/2020)
 
+BREAKING CHANGES:
+
+* New `alteaon-client-go` was introduced
 
 FEATURES:
-
-* **New Resource:** `alteon_server_group` 
 
 
 ### 0.1.0-pre (11/24/2020)

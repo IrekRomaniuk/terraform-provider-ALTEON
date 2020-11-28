@@ -3,7 +3,7 @@ package alteon
 import (
   "context"
   //"strconv"
-  //"encoding/json"
+  "encoding/json"
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
   "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -177,13 +177,20 @@ func dataSourceRealServer() *schema.Resource {
 	  })*/
  
 	RealServerID := d.Get("index").(string)
+	Table  := "SlbNewCfgEnhRealServerTable"
 
-	RealServer, err := c.GetRealServer(RealServerID)
+	RealServer, err := c.GetItem(Table, RealServerID)
 	if err != nil {
 		return diag.FromErr(err)
 	}
-	
-	RealServerItems := flattenRealServerItemsData(&RealServer.Items)
+	Items := RealServer[Table]
+	helper, err := json.Marshal(Items)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	var Item []ac.RealServerItem
+	json.Unmarshal(helper, &Item)
+	RealServerItems := flattenRealServerItemsData(&Item) //&RealServer.Items
 	  
 	if err := d.Set("items", RealServerItems); err != nil {
 		return diag.FromErr(err)

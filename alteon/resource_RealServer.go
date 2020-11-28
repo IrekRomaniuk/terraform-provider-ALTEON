@@ -4,7 +4,7 @@ import (
   "context"
   //"strconv"
   //"fmt"
-  //"encoding/json"
+  "encoding/json"
   "time"
   ac "github.com/irekromaniuk/alteon-client-go"
   "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -192,6 +192,7 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 	var diags diag.Diagnostics
   
 	RealServerID := d.Get("index").(string)
+	Table  := "SlbNewCfgEnhRealServerTable"
 	items := d.Get("items").([]interface{})
 	rss := []ac.RealServerItem{}
 
@@ -211,14 +212,19 @@ func resourceRealServerCreate(ctx context.Context, d *schema.ResourceData, m int
 	  }
 	  rss = append(rss, rsi)
 	}
-	/*prettyJSON, _ := json.MarshalIndent(rss, "", "    ")
-	  diags = append(diags, diag.Diagnostic{
+	
+	brss, err :=json.MarshalIndent(rss[0], "", "    ")
+	//prettyJSON, _ := json.MarshalIndent(rss, "", "    ")
+	/*  diags = append(diags, diag.Diagnostic{
 		Severity: diag.Warning,
-		Summary:  "rss",
-		Detail:   fmt.Sprint(string(prettyJSON)),
+		Summary:  "brss",
+		Detail:   fmt.Sprint(string(brss)),
 	  })
-	return diags*/ 
-	rs, err := c.CreateRealServer(rss, RealServerID)
+	return diags */
+	if err != nil {
+		diag.FromErr(err)
+	}
+	rs, err := c.CreateItem(brss, Table, RealServerID)
 	/*diags = append(diags, diag.Diagnostic{
 		Severity: diag.Warning,
 		Summary:  "rs",
@@ -249,13 +255,20 @@ func resourceRealServerRead(ctx context.Context, d *schema.ResourceData, m inter
 	var diags diag.Diagnostics
   
 	RealServerID := d.Id()
+	Table  := "SlbNewCfgEnhRealServerTable"
   
-	RealServer, err := c.GetRealServer(RealServerID)
+	RealServer, err := c.GetItem(Table, RealServerID)
 	if err != nil {
 	  return diag.FromErr(err)
 	}
-  
-	RealServerItems := flattenRealServerItems(&RealServer.Items)
+	Items := RealServer[Table]
+	helper, err := json.Marshal(Items)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	var Item []ac.RealServerItem
+	json.Unmarshal(helper, &Item)
+	RealServerItems := flattenRealServerItems(&Item) //&RealServer.Items
 	if err := d.Set("items", RealServerItems); err != nil {
 	  return diag.FromErr(err)
 	}
@@ -267,6 +280,7 @@ func resourceRealServerUpdate(ctx context.Context, d *schema.ResourceData, m int
     c := m.(*ac.Client)
 
 	RealServerID := d.Id()
+	Table  := "SlbNewCfgEnhRealServerTable"
 
 	if d.HasChange("items") {
 		items := d.Get("items").([]interface{})
@@ -288,8 +302,11 @@ func resourceRealServerUpdate(ctx context.Context, d *schema.ResourceData, m int
 			}
 			rss = append(rss, rsi)
 		}
-
-		_, err := c.UpdateRealServer(rss, RealServerID)
+		brss, err :=json.MarshalIndent(rss[0], "", "    ")
+		if err != nil {
+			return diag.FromErr(err)
+		}
+		_, err = c.UpdateItem(brss, Table, RealServerID)
 		if err != nil {
 			return diag.FromErr(err)
 		}
@@ -309,8 +326,9 @@ func resourceRealServerDelete(ctx context.Context, d *schema.ResourceData, m int
   var diags diag.Diagnostics
 
   RealServerID := d.Id()
+  Table  := "SlbNewCfgEnhRealServerTable"
 
-  err := c.DeleteRealServer(RealServerID)
+  err := c.DeleteItem(Table, RealServerID)
   if err != nil {
     return diag.FromErr(err)
   }

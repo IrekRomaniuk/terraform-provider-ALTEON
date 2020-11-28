@@ -26,6 +26,6 @@ provider "alteon" {
 
 ## Argument Reference
 
-- `username` - alteon VA username
-- `password` - alteon VA password
-- `uri` - alteon VA uri, i.e. "https://13.92.134.158:8443/config"
+- `username` - alteon VA username (env "ALTEON_USERNAME")
+- `password` - alteon VA password (env "ALTEON_PASSWORD")
+- `uri` - alteon VA uri, i.e. "https://13.92.134.158:8443/config" (env "ALTEON_URI")
