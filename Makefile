@@ -5,6 +5,7 @@ NAME=alteon
 BINARY=terraform-provider-${NAME}
 VERSION=0.1
 OS_ARCH=linux_amd64
+#TESTARGS='-run=TestAccProvider'
 
 default: install
 
