@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-var testAccProviders map[string]*schema.Provider
+var testAccProviders map[string]*schema.Provider // map[string]terraform.ResourceProvider
 var testAccProvider *schema.Provider
 
 func init() {
