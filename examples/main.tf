@@ -10,8 +10,8 @@ terraform {
 provider "alteon" {
 }
 
-/*resource "alteon_real_server" "LabServer" {
-  index="LabServer1"
+resource "alteon_real_server" "TestServer" {
+  index="TestServer"
   items {
     	ipaddr="1.1.1.2"
       name="description2"
@@ -19,7 +19,7 @@ provider "alteon" {
       //timeout=2
       state=2
     }
-}*/
+}
 
 /*resource "alteon_real_server" "LabServer2" {
   index="LabServer2"
@@ -28,15 +28,15 @@ provider "alteon" {
       name="description2"
       state=2
     }
-}
-
-data "alteon_real_server" "LabServer" {
-  index="LabServer2"
-}
-
-output "LabServer" {
-  value = data.alteon_real_server.LabServer
 }*/
+
+data "alteon_real_server" "TestServer" {
+  index="TestServer"
+}
+
+output "TestServer" {
+  value = data.alteon_real_server.TestServer
+}
 
 /*resource "alteon_server_group" "LabServers" {
   

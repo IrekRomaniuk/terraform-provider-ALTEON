@@ -4,22 +4,27 @@ import (
 	"testing"
 	"os"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
-var testAccProviders map[string]*schema.Provider // map[string]terraform.ResourceProvider
+var testAccProviders map[string]terraform.ResourceProvider // map[string]terraform.ResourceProvider or *schema.Provider
 var testAccProvider *schema.Provider
 
 func init() {
   testAccProvider = Provider().(*schema.Provider)
-  testAccProviders = map[string]*schema.Provider{
+  testAccProviders = map[string]terraform.ResourceProvider{
     "alteon": testAccProvider,
   }
 }
 
-func TestAccProvider(t *testing.T) {
+func TestProvider(t *testing.T) {
 	if err := Provider().(*schema.Provider).InternalValidate(); err != nil {
 		t.Fatalf("err: %s", err)
 	}
+}
+
+func TestProvider_impl(t *testing.T) {
+	var _ terraform.ResourceProvider = Provider()
 }
 
 /*var providerFactories = map[string]func() (*schema.Provider, error){
@@ -47,4 +52,8 @@ func testAccPreCheck(t *testing.T) {
 	  if v := os.Getenv("ALTEON_URI"); v == "" {
 		t.Fatal("ALTEON_URI must be set for acceptance tests")
 	  }
+	  /*err := testAccProvider.Configure(terraform.NewResourceConfigRaw(nil))
+      if err != nil {
+        t.Fatal(err)
+      }*/
 }
