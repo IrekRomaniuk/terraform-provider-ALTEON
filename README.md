@@ -24,7 +24,7 @@ provider "alteon" {
 resource "alteon_real_server" "LabServer" {
   index="LabServer1"
   items {
-      ipaddr="1.1.1.1"
+      ipaddr="1.2.3.4"
       name="description"
     }
 }
