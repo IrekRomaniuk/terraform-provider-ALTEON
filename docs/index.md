@@ -18,7 +18,7 @@ terraform {
 provider "alteon" {
     username="admin"
     password=""
-    uri="https://13.92.134.158:8443/config"
+    uri="https://13.92.134.159:8443/config"
 }
 
 
@@ -28,4 +28,4 @@ provider "alteon" {
 
 - `username` - alteon VA username (env "ALTEON_USERNAME")
 - `password` - alteon VA password (env "ALTEON_PASSWORD")
-- `uri` - alteon VA uri, i.e. "https://13.92.134.158:8443/config" (env "ALTEON_URI")
+- `uri` - alteon VA uri, i.e. "https://13.92.134.159:8443/config" (env "ALTEON_URI")
