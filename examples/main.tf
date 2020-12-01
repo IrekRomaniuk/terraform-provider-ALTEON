@@ -30,17 +30,19 @@ resource "alteon_real_server" "TestServer" {
     }
 }*/
 
-data "alteon_real_server" "TestServer" {
+/*data "alteon_real_server" "TestServer" {
   index="TestServer"
 }
 
 output "TestServer" {
   value = data.alteon_real_server.TestServer
-}
-
-/*resource "alteon_server_group" "LabServers" {
-  "Name":"Group description",
-    "AddServer":"LabServer1",
-    "HealthCheckUrl":"tcp-443"
-  
 }*/
+
+resource "alteon_server_group" "LabServers" {
+  index="LabServers"
+  items {
+    name="Group description2"
+    addserver="LabServer10"
+    healthcheckurl="tcp-443"
+    }
+}
