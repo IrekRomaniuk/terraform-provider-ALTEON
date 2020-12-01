@@ -39,5 +39,8 @@ output "TestServer" {
 }
 
 /*resource "alteon_server_group" "LabServers" {
+  "Name":"Group description",
+    "AddServer":"LabServer1",
+    "HealthCheckUrl":"tcp-443"
   
 }*/

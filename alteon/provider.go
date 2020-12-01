@@ -31,6 +31,7 @@ func Provider() *schema.Provider {
 	  },  
     ResourcesMap: map[string]*schema.Resource{
 		"alteon_real_server":     resourceRealServer(),
+		"alteon_server_group":    resourceServerGroup(),
 	},
 	DataSourcesMap: map[string]*schema.Resource{
 		"alteon_real_server":     dataSourceRealServer(),
