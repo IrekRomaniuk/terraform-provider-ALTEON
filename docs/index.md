@@ -9,8 +9,8 @@ This provider interacts with Radware Alteon VA (Standalone, next-generation appl
 terraform {
   required_providers {
     alteon = {
-      versions = ["0.1"]
-      source = "github.com/irekromaniuk/alteon"
+      versions = ["0.2"]
+      source = "irekromaniuk/alteon"
     }
   }
 }

@@ -6,9 +6,12 @@ Maintaines Alteon Server Group table SlbNewCfgEnhGroupTable.
 
 ```
 resource "alteon_server_group" "LabServers" {
-    "Name":"Group description",
-    "AddServer":"LabServer1",
-    "HealthCheckUrl":"tcp-443"
+    index="LabServers"
+    items {
+        name="Group description"
+        addserver="TestServer"
+        healthcheckurl="tcp-443"
+    }
 }
 ```
 

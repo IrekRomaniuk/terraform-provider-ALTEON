@@ -5,15 +5,15 @@ This provider interacts with Radware Alteon VA (Standalone) API, tested with ver
 
 ## Example Usage
 
-Look for example of main.tf in the example directory
+Look for example of main.tf in the example directory.
 
 ```
 
 terraform {
   required_providers {
     alteon = {
-      versions = ["0.1"]
-      source = "github.com/irekromaniuk/alteon"
+      versions = ["0.2"]
+      source = "irekromaniuk/alteon"
     }
   }
 }
