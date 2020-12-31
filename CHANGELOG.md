@@ -1,4 +1,4 @@
-### 0.2.1-pre (unreleased)
+### 0.2.0 (12/21/2020)
 
 FEATURES:
 
