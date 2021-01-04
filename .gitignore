@@ -4,4 +4,4 @@
 vendor/*
 NOTES.md
 .terraform*
-terraform.tfstate
+terraform.tfstate*
