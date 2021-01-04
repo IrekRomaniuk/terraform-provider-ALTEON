@@ -1,1 +1,14 @@
-{}
+{
+  "github.com/irekromaniuk/alteon": {
+    "hash": "h1:U4A4+Hlt7qKD5aaqg5buNwxoRha0UhKak9K0bK3NHzI=",
+    "version": "0.1.0"
+  },
+  "registry.terraform.io/hashicorp/azurerm": {
+    "hash": "h1:SA1rST5+Y+gFn1xbJ4V2rWgvJlvrLog9p7H/fHsTWHc=",
+    "version": "2.41.0"
+  },
+  "registry.terraform.io/irekromaniuk/alteon": {
+    "hash": "h1:yi/DBTVIz/OPC/R68u1u4upxTVjQCaWTgtkAR7nVihc=",
+    "version": "0.2.0"
+  }
+}

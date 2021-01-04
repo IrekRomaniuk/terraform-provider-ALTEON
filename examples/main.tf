@@ -1,13 +1,20 @@
 terraform {
   required_providers {
     alteon = {
-      versions = ["0.2"]
+      versions = ["0.2.0"]
       source = "irekromaniuk/alteon"
+    }
+    azurerm = {
+      version = ">= 2.0"
     }
   }
 }
 
 provider "alteon" {
+}
+
+provider "azurerm" {
+  features {}
 }
 
 resource "alteon_real_server" "TestServer" {
