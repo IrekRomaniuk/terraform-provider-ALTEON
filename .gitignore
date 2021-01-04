@@ -3,3 +3,5 @@
 *.tfstate.*
 vendor/*
 NOTES.md
+.terraform*
+terraform.tfstate
