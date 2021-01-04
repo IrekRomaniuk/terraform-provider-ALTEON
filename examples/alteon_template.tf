@@ -1,14 +1,14 @@
-resource "azurerm_resource_group_template_deployment" "alteon" {
+resource "azurerm_template_deployment" "alteon" {
   name                = "alteon-deploy"
   resource_group_name = "alteon-group"
-  deployment_mode     = "Complete"
-  template_content    = <<TEMPLATE
+  deployment_mode     = "Incremental"
+  template_body    = <<TEMPLATE
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
         "location": {
-            "value": var.location
+            "value": "eastus"
         },
         "networkInterfaceName": {
             "value": "alteon-test20"

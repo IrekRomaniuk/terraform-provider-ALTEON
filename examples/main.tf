@@ -29,7 +29,7 @@ resource "alteon_real_server" "TestServer" {
       state=2
     }
   depends_on = [
-    azurerm_resource_group_template_deployment.alteon
+    azurerm_template_deployment.alteon
   ]  
 }
 
@@ -58,6 +58,6 @@ resource "alteon_server_group" "LabServers" {
     healthcheckurl="tcp-443"
     }
   depends_on = [
-    azurerm_resource_group_template_deployment.alteon
+    azurerm_template_deployment.alteon
   ]   
 }
