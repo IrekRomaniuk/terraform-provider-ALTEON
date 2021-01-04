@@ -11,6 +11,8 @@ terraform {
 }
 
 provider "alteon" {
+  username="admin"
+  password="xxx"
 }
 
 provider "azurerm" {
