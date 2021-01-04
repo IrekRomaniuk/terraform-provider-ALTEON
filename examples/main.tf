@@ -19,6 +19,9 @@ resource "alteon_real_server" "TestServer" {
       //timeout=2
       state=2
     }
+  depends_on = [
+    azurerm_resource_group_template_deployment.alteon
+  ]  
 }
 
 /*resource "alteon_real_server" "LabServer2" {
@@ -45,4 +48,7 @@ resource "alteon_server_group" "LabServers" {
     addserver="LabServer10"
     healthcheckurl="tcp-443"
     }
+  depends_on = [
+    azurerm_resource_group_template_deployment.alteon
+  ]   
 }
